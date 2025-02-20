@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masa Depan Teknologi AI</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/inter/3.19.3/inter.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #00f2fe;
+            --secondary: #4355f9;
+            --accent: #ff3366;
+            --dark: #0a0a1a;
+            --light: #ffffff;
+            --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, var(--dark), #141428);
+            color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+        }
+
+        /* Futuristic Header */
+        header {
+            background: rgba(10, 10, 26, 0.8);
+            backdrop-filter: blur(20px);
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 242, 254, 0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8em;
+            font-weight: 800;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .logo::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--gradient);
+            transform: scaleX(0);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .logo:hover::after {
+            transform: scaleX(1);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: var(--light);
+            text-decoration: none;
+            padding: 8px 20px;
+            border-radius: 25px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            font-weight: 500;
+        }
+
+        .nav-links a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient);
+            opacity: 0;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: -1;
+            transform: translateY(100%) scale(0.5);
+        }
+
+        .nav-links a:hover {
+            color: var(--dark);
+        }
+
+        .nav-links a:hover::before {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        /* Enhanced Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            padding: 100px 0;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 200vw;
+            height: 200vh;
+            background: radial-gradient(circle at center, 
+                rgba(0, 242, 254, 0.1) 0%,
+                rgba(67, 85, 249, 0.05) 30%,
+                transparent 70%);
+            animation: rotateGradient 30s linear infinite;
+        }
+
+        @keyframes rotateGradient {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        .hero h1 {
+            font-size: 5em;
+            font-weight: 900;
+            margin-bottom: 30px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: titlePulse 3s ease-in-out infinite;
+            letter-spacing: -2px;
+        }
+
+        @keyframes titlePulse {
+            0%, 100% { 
+                transform: scale(1);
+                filter: brightness(1);
+            }
+            50% { 
+                transform: scale(1.02);
+                filter: brightness(1.2);
+            }
+        }
+
+        .hero p {
+            font-size: 1.4em;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 800px;
+            margin: 0 auto;
+            animation: fadeInUp 1s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Enhanced Article Content */
+        .article-content {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 60px;
+            border-radius: 30px;
+            margin: 60px 0;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(0, 242, 254, 0.1);
+            position: relative;
+            backdrop-filter: blur(10px);
+        }
+
+        .article-content::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 30px;
+            padding: 2px;
+            background: var(--gradient);
+            -webkit-mask: 
+                linear-gradient(#fff 0 0) content-box, 
+                linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0.5;
+        }
+
+        .article-content h2 {
+            color: var(--primary);
+            font-size: 2.5em;
+            margin: 40px 0 20px;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            transform: translateX(-30px);
+            opacity: 0;
+            animation: slideInRight 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        .highlight-box {
+            background: rgba(0, 242, 254, 0.05);
+            border-left: 4px solid var(--primary);
+            padding: 30px;
+            margin: 40px 0;
+            border-radius: 0 20px 20px 0;
+            position: relative;
+            overflow: hidden;
+            transform: translateY(30px);
+            opacity: 0;
+            animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        .highlight-box p {
+            font-size: 1.2em;
+            font-weight: 500;
+            color: var(--primary);
+        }
+
+        /* Enhanced Animations */
+        @keyframes fadeInUp {
+            from {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                transform: translateX(-30px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        /* Floating Elements Animation */
+        .floating-element {
+            position: absolute;
+            background: var(--gradient);
+            border-radius: 50%;
+            filter: blur(20px);
+            opacity: 0.1;
+            animation: float 10s infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            25% { transform: translate(10px, -10px); }
+            50% { transform: translate(-5px, 5px); }
+            75% { transform: translate(8px, -8px); }
+        }
+
+        /* Enhanced Footer */
+        footer {
+            background: rgba(10, 10, 26, 0.8);
+            padding: 40px 0;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+
+        .footer-content {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            font-weight: 500;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 3em;
+            }
+
+            .article-content {
+                padding: 30px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-element" style="width: 300px; height: 300px; top: 20%; left: 10%;"></div>
+    <div class="floating-element" style="width: 200px; height: 200px; top: 60%; right: 5%;"></div>
+
+    <header>
+        <nav class="container">
+            <div class="logo">khritikel</div>
+            <div class="nav-links">
+                <a href="#">Beranda</a>
+                <a href="#">Artikel</a>
+                <a href="#">Teknologi</a>
+                <a href="#">Kontak</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <div>
+                <h1>Masa Depan Teknologi AI</h1>
+                <p>Menjelajahi potensi dan dampak kecerdasan buatan di masa depan</p>
+            </div>
+        </section>
+
+        <article class="article-content">
+            <p>Artificial Intelligence (AI) telah mengalami perkembangan yang luar biasa dalam beberapa tahun terakhir. Teknologi ini tidak hanya mengubah cara kita bekerja, tetapi juga bagaimana kita hidup dan berinteraksi satu sama lain.</p>
+
+            <div class="highlight-box">
+                <p>"AI bukan lagi sekadar teknologi masa depan - ini adalah realitas masa kini yang terus berkembang dengan kecepatan luar biasa."</p>
+            </div>
+
+            <h2>Revolusi AI dalam Kehidupan Sehari-hari</h2>
+            <p>Dari asisten virtual hingga sistem rekomendasi, AI telah menjadi bagian integral dari rutinitas harian kita. Namun, ini hanyalah permulaan. Para ahli memprediksi bahwa dalam dekade mendatang, AI akan semakin canggih dan mampu menangani tugas-tugas kompleks yang saat ini masih memerlukan campur tangan manusia.</p>
+
+            <h2>Tantangan dan Peluang</h2>
+            <p>Meskipun AI menawarkan potensi luar biasa, ada beberapa tantangan yang perlu diatasi. Privasi data, etika AI, dan dampaknya terhadap lapangan kerja adalah beberapa masalah utama yang perlu diperhatikan. Namun, dengan pendekatan yang tepat, tantangan ini bisa diubah menjadi peluang untuk menciptakan masa depan yang lebih baik.</p>
+
+            <div class="highlight-box">
+                <p>"Kunci untuk masa depan AI yang positif adalah keseimbangan antara inovasi teknologi dan nilai-nilai kemanusiaan."</p>
+            </div>
+
+            <h2>Masa Depan yang Menjanjikan</h2>
+            <p>Dengan perkembangan yang pesat dalam machine learning dan deep learning, masa depan AI tampak sangat menjanjikan. Teknologi ini diperkirakan akan membuka berbagai kemungkinan baru dalam bidang kesehatan, pendidikan, transportasi, dan banyak sektor lainnya.</p>
+        </article>
+    </main>
+
+    <footer>
+        <div class="footer-content container">
+            <p>&copy; 2025 khritikel. Semua hak dilindungi.</p>
+        </div>
+    </footer>
+</body>
+</html>
